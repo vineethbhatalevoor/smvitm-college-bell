@@ -1,0 +1,38 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SMVITM College Bell System</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <a href="https://sode-edu.in/">
+            <img src="{% static 'logo.png' %}" class="logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/schedule">Edit Schedule</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to SMVITM College Bell System</h1>
+        <p>Manage your schedule and automate bell ringing for exams and lectures.</p>
+
+        {% if user.is_authenticated %}
+            <h2>Your Bell Schedule</h2>
+            <div id="bell-info"></div>
+            <audio id="normal-bell-audio" src="{% static 'normal_bell.mp3' %}" preload="auto"></audio>
+            <audio id="exam-bell-audio" src="{% static 'exam_bell.mp3' %}" preload="auto"></audio>
+        {% else %}
+            <p><a href="/login">Login</a> to activate bells for your college.</p>
+        {% endif %}
+    </main>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

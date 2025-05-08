@@ -1,0 +1,84 @@
+{% load static %}  <!-- ✅ Ensures Django recognizes static files -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Menu Grid Dropdown</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .menu-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .menu-button {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .dropdown-grid {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            grid-template-columns: repeat(2, 1fr); /* 2-column grid */
+            gap: 12px;
+            width: 220px;
+            border-radius: 8px;
+        }
+        
+        .dropdown-grid a {
+            background-color: #f8f9fa;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-grid a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .menu-container:hover .dropdown-grid {
+            display: grid;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <button class="menu-button">Menu</button>
+        <div class="dropdown-grid">
+            <a href="#">Home</a>
+            <a href="#">Schedule</a>
+            <a href="#">Settings</a>
+            <a href="#">Reports</a>
+            <a href="#">Help</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+</body>
+</html>

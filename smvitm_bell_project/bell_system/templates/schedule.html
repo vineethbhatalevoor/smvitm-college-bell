@@ -1,40 +1,69 @@
-{% if user.is_authenticated %}
-    <h1>Bell Schedule</h1>
-    <table>
-        <tr>
-            <th>Time</th>
-            <th>Type</th>
-            <th>Status</th>
-        </tr>
-        {% for schedule in schedules %}
-            <tr>
-                <td>{{ schedule.time }}</td>
-                <td>{{ schedule.bell_type }}</td>
-                <td>{% if schedule.is_bell_active %}✅ Active{% else %}❌ Off{% endif %}</td>
-            </tr>
-        {% endfor %}
-    </table>
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bell Schedule Management</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
 
-    {% if user_role == "College Admin" %}
-        <h2>Edit Schedule</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <label for="time">Bell Time:</label>
-            <input type="time" name="time" required>
-            <label for="bell_type">Type:</label>
-            <select name="bell_type">
-                <option value="Normal">Normal</option>
-                <option value="Exam">Exam</option>
-            </select>
-            <button type="submit">Save Bell Time</button>
-        </form>
-    {% elif user_role == "Staff" %}
-        <h2>Control Bell Status</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <button type="submit">Toggle Bell Status</button>
-        </form>
-    {% endif %}
-{% else %}
-    <p><a href="/login">Login</a> to view schedules.</p>
-{% endif %}
+    <header>
+        <h1>📅 College Bell Schedule</h1>
+    </header>
+
+    <main class="schedule-container">
+
+        {% if user.is_authenticated %}
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>⏰ Time</th>
+                        <th>🔔 Type</th>
+                        <th>📌 Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for schedule in schedules %}
+                        <tr>
+                            <td>{{ schedule.time }}</td>
+                            <td>{{ schedule.bell_type }}</td>
+                            <td>{% if schedule.is_bell_active %}✅ Active{% else %}❌ Off{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% if user_role == "College Admin" %}
+                <h2>Edit Bell Schedule</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <label for="time">⏰ Bell Time:</label>
+                    <input type="time" name="time" required>
+
+                    <label for="bell_type">🔔 Type:</label>
+                    <select name="bell_type">
+                        <option value="Normal">Normal</option>
+                        <option value="Exam">Exam</option>
+                    </select>
+
+                    <button class="button" type="submit">✅ Save Bell Time</button>
+                </form>
+
+            {% elif user_role == "Staff" %}
+                <h2>Control Bell Status</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button class="button" type="submit">🔁 Toggle Bell Status</button>
+                </form>
+            {% endif %}
+
+        {% else %}
+            <p class="login-message">🔐 <a href="/login">Login</a> to view schedules.</p>
+        {% endif %}
+
+    </main>
+
+</body>
+</html>

@@ -1,4 +1,6 @@
 {% load static %} 
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,33 +8,38 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+
     <header>
-        <a href="https://sode-edu.in/">
-            <img src="{% static 'logo.png' %}" class="logo">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/schedule">Edit Schedule</a></li>
-                <li><a href="/about">About Us</a></li>
-            </ul>
-        </nav>
+        <img src="{% static 'logo.png' %}" class="logo">
+        <h1 class="header-title">SMVITM College Bell System</h1>
     </header>
 
-    <main>
-        <h1>Welcome to SMVITM College Bell System</h1>
-        <p>Manage your schedule and automate bell ringing for exams and lectures.</p>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/schedule/">Edit Schedule</a></li>
+            <li><a href="/about/">About Us</a></li>
+        </ul>
+    </nav>
 
-        {% if user.is_authenticated %}
-            <h2>Your Bell Schedule</h2>
-            <div id="bell-info"></div>
-            <audio id="normal-bell-audio" src="{% static 'normal_bell.mp3' %}" preload="auto"></audio>
-            <audio id="exam-bell-audio" src="{% static 'exam_bell.mp3' %}" preload="auto"></audio>
-        {% else %}
-            <p><a href="/login">Login</a> to activate bells for your college.</p>
-        {% endif %}
+    <main>
+        <section class="info-box" id="how-it-works">
+            <h2>📌 How It Works</h2>
+            <p>SMVITM College Bell System automates bell ringing schedules using Django, allowing admins to manage class timings efficiently.</p>
+        </section>
+
+        <section class="info-box" id="tech-stack">
+            <h2>🛠 Tech Stack Used</h2>
+            <ul>
+                <li>✅ Django (Python)</li>
+                <li>✅ HTML, CSS, JavaScript</li>
+                <li>✅ SQLite Database</li>
+                <li>✅ Bootstrap for UI Styling</li>
+            </ul>
+        </section>
     </main>
 
     <script src="{% static 'script.js' %}"></script>
+
 </body>
 </html>

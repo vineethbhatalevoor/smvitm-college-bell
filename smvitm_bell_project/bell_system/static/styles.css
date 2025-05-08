@@ -1,0 +1,76 @@
+/* ✅ Schedule Page Container */
+.schedule-container {
+    padding: 40px;
+    background: white;
+    border-left: 6px solid #004d40;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+/* ✅ Bell Schedule Table */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.schedule-table th {
+    background: #004d40;
+    color: white;
+    font-size: 18px;
+}
+
+.schedule-table tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+.schedule-table tr:hover {
+    background: #e0f7fa;
+    transition: 0.3s;
+}
+
+/* ✅ Buttons */
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #004d40;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: #003366;
+    transform: scale(1.05);
+}
+
+/* ✅ Smooth Appearance Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✅ Login Message */
+.login-message {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}

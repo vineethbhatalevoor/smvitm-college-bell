@@ -1,33 +1,34 @@
-{% load static %}  <!-- ✅ Add this line at the top of your file -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About SMVITM College Bell System</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/schedule">Edit Schedule</a></li>
-            </ul>
-        </nav>
+        <h1 class="header-title">About Our Team</h1>
     </header>
 
     <main>
-        <h1>About the SMVITM College Bell System</h1>
-        <p>This system automates bell ringing for colleges, allowing admins to edit schedules dynamically.</p>
-
-        <h2>Meet the Team</h2>
-        <p><strong>Vineeth</strong></p>
-        <p>Email: <a href="mailto:vineeth.24cs181@sode-edu.in">vineeth.24cs181@sode-edu.in</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/vineethbhatalevoor0507">View Profile</a></p>
-
-        <p><strong>Vishnu Prasad</strong></p>
-        <p>Email: <a href="mailto:vishnu.24cs182@sode-edu.in">vishnu.24cs182@sode-edu.in</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/vishnu-prasad-nayak-4b6333266">View Profile</a></p>
+        <section class="team-box">
+            <h2>🌟 Team Members</h2>
+            <div class="member">
+                <h3>Vineeth</h3>
+                <p>Role: Backend Developer</p>
+                <p>Email: <a href="mailto:vineeth.24cs181@sode-edu.in">vineeth.24cs181@sode-edu.in</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/vineethbhatalevoor0507">View Profile</a></p>
+            </div>
+            <div class="member">
+                <h3>Vishnu Prasad</h3>
+                <p>Role: Frontend Developer</p>
+                <p>Email: <a href="mailto:vishnu.24cs182@sode-edu.in">vishnu.24cs182@sode-edu.in</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/vishnu-prasad-nayak-4b6333266">View Profile</a></p>
+            </div>
+        </section>
     </main>
+
 </body>
 </html>
